@@ -116,6 +116,35 @@ SELECT * FROM json.`${DA.paths.kafka_events}/001.json`
 
 -- COMMAND ----------
 
+select * from json.`dbfs:/mnt/dbacademy-datasets/data-engineer-learning-path/v02/ecommerce/raw/events-kafka/000.json`
+
+-- COMMAND ----------
+
+show views
+
+-- COMMAND ----------
+
+create or replace view event_veiw
+AS 
+select * from json.`${DA.paths.kafka_events}`
+
+-- COMMAND ----------
+
+show views
+
+-- COMMAND ----------
+
+create or replace  view event_veiw_temp
+AS 
+select * from json.`${DA.paths.kafka_events}`
+
+-- COMMAND ----------
+
+with cte as (select * from event_view)
+select * from cte
+
+-- COMMAND ----------
+
 -- DBTITLE 0,--i18n-0f45ecb7-4024-4798-a9b8-e46ac939b2f7
 -- MAGIC %md
 -- MAGIC
@@ -182,10 +211,6 @@ AS SELECT * FROM json.`${DA.paths.kafka_events}`
 -- MAGIC %md
 -- MAGIC
 -- MAGIC Temporary views exists only for the current SparkSession. On Databricks, this means they are isolated to the current notebook, job, or DBSQL query.
-
--- COMMAND ----------
-
-SELECT * FROM events_temp_view
 
 -- COMMAND ----------
 

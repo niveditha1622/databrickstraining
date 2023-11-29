@@ -53,6 +53,18 @@ SELECT * FROM csv.`${DA.paths.sales_csv}`
 
 -- COMMAND ----------
 
+-- MAGIC %fs ls
+
+-- COMMAND ----------
+
+-- MAGIC %fs ls dbfs:/mnt/dbacademy-users/labuser5321040@vocareum.com/data-engineer-learning-path
+
+-- COMMAND ----------
+
+select * from csv.`dbfs:/mnt/dbacademy-users/labuser5321040@vocareum.com/data-engineer-learning-path/sales-csv/`
+
+-- COMMAND ----------
+
 -- DBTITLE 0,--i18n-2de59e8e-3bc3-4609-96ad-e8985b250154
 -- MAGIC %md
 -- MAGIC
@@ -108,6 +120,10 @@ OPTIONS (
   delimiter = "|"
 )
 LOCATION "${DA.paths.sales_csv}"
+
+-- COMMAND ----------
+
+select * from sales_csv
 
 -- COMMAND ----------
 

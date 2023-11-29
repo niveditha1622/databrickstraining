@@ -63,6 +63,10 @@
 
 -- COMMAND ----------
 
+SELECT * from users_dirty
+
+-- COMMAND ----------
+
 SELECT count(*), count(user_id), count(user_first_touch_timestamp), count(email), count(updated)
 FROM users_dirty
 

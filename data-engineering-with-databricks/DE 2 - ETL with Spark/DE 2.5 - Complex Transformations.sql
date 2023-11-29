@@ -52,6 +52,10 @@
 
 -- COMMAND ----------
 
+select * from events_raw
+
+-- COMMAND ----------
+
 CREATE OR REPLACE TEMP VIEW events_strings AS 
 SELECT string(key), string(value) FROM events_raw;
 
@@ -150,6 +154,10 @@ SELECT * FROM parsed_events
 -- MAGIC - **`size()`** provides a count for the number of elements in an array for each row.
 -- MAGIC
 -- MAGIC The code below explodes the **`items`** field (an array of structs) into multiple rows and shows events containing arrays with 3 or more items.
+
+-- COMMAND ----------
+
+select * from parsed_events
 
 -- COMMAND ----------
 
